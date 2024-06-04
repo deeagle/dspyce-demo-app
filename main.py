@@ -2,14 +2,14 @@ import dspyce
 import json
 
 
-def getRestApiConnection(url: str):
+def get_rest_api_connection(endpoint_url: str) -> dspyce.rest.RestAPI:
     print("> Create RestApi connection")
-    return dspyce.rest.RestAPI(url, log_level="ERROR")
+    return dspyce.rest.RestAPI(endpoint_url, log_level="ERROR")
 
 
-def printStats(apiEndpoint, human_readable=True):
+def print_statistics(api_endpoint: dspyce.rest.RestAPI, human_readable=True) -> None:
     print("> Print endpoint::statistics")
-    stats = apiEndpoint.get_api("/statistics")
+    stats = api_endpoint.get_api("/statistics")
     if human_readable:
         stats = json.dumps(stats, indent=2)
     print(stats)
@@ -18,6 +18,6 @@ def printStats(apiEndpoint, human_readable=True):
 if __name__ == "__main__":
     print("Demo implementation of a dspyce library")
     url = "https://demo.dspace.org/server/api"
-    apiEndpoint = getRestApiConnection(url)
-    printStats(apiEndpoint)
+    apiEndpoint = get_rest_api_connection(url)
+    print_statistics(apiEndpoint)
     print("Demo successfully finished")
