@@ -12,10 +12,10 @@ created during OpenRepositories 2024 in Gothenburg.
 - `docker buildx build -t "dspyce-demo:local" .`
 - `docker run dspyce-demo:local`
 
-## weblinks
+## Weblinks
 
 - [DSpace](https://dspace.lyrasis.org/)
 - [DSpace (GitHub)](https://github.com/DSpace/DSpace)
 - [DSpyce (GitHub)]
 
-[DSpyce]: https://github.com/dspace-unimr/dspyce
+[DSpyce (GitHub)]: https://github.com/dspace-unimr/dspyce
