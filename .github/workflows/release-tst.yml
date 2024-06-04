@@ -1,0 +1,37 @@
+---
+
+name: Release test
+
+permissions:
+  contents: write
+  issues: write
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Only for testing of the release environment.
+  semantic:
+    name: Semantic-Release-Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install @semantic-release/changelog @semantic-release/git @semantic-release/changelog @semantic-release/commit-analyzer @semantic-release/exec @semantic-release/git semantic-release/release-notes-generator
+
+      - name: Release (Dry-Run)
+        run: npx semantic-release -d
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
