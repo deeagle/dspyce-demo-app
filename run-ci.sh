@@ -11,7 +11,7 @@ echo "Lint markdown ..."
 docker run --rm -v "$(pwd):/app" docdee/mdlint -c /app/.markdownlint.yml -i CHANGELOG.md "**/*.md"
 
 echo "Lint shell scripts ..."
-#docker run --rm -v "$(pwd):/app" koalaman/shellcheck-alpine:stable find /app -type f -name '*.sh' -exec shellcheck {} +
+docker run --rm -v "$(pwd):/app" koalaman/shellcheck-alpine:stable find /app -type f -name '*.sh' -exec shellcheck {} +
 
 echo "Lint code (flake8) ..."
 echo "> we want O's"
@@ -21,4 +21,3 @@ docker run --rm -v "$(pwd):/app" pipelinecomponents/flake8 flake8 . --count --se
 docker run --rm -v "$(pwd):/app" pipelinecomponents/flake8 flake8 . --count --max-complexity=10 --max-line-length=120 --statistics
 
 echo "CI successfully finished."
-
