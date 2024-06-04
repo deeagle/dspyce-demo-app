@@ -1,0 +1,6 @@
+.git
+.gitignore
+.idea
+.markdownlint.yml
+Dockerfile
+run-ci.sh
