@@ -1,6 +1,8 @@
 .git
 .gitignore
 .idea
+.hadolint.yml
 .markdownlint.yml
+.releaserc
 Dockerfile
 run-ci.sh
