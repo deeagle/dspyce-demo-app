@@ -13,6 +13,15 @@ docker run --rm -v "$(pwd):/app" docdee/mdlint -c /app/.markdownlint.yml -i CHAN
 echo "Lint shell scripts ..."
 docker run --rm -v "$(pwd):/app" koalaman/shellcheck-alpine:stable find /app -type f -name '*.sh' -exec shellcheck {} +
 
+echo "Lint Dockerfiles ..."
+docker_linter_version="$(docker run --rm -i ghcr.io/hadolint/hadolint hadolint -v)"
+echo "Using docker-linter version: ${docker_linter_version}"
+dockerfiles=$(find . -type f -name "*Dockerfile" -not -path "./vendor/*" -not -path "./tmp/*")
+for dockerfile in ${dockerfiles}; do
+  echo "> lint file: $dockerfile"
+  docker run --rm -i -v "${PWD}/.hadolint.yml:/.config/hadolint.yml" ghcr.io/hadolint/hadolint < "$dockerfile"
+done
+
 echo "Lint code (flake8) ..."
 echo "> we want O's"
 # stop the build if there are Python syntax errors or undefined names
