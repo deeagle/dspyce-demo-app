@@ -28,7 +28,8 @@
           release: "patch",
         },
         {
-          type: "build(deps)",
+          type: "build",
+          scope: "debs"
           release: "patch",
         }
       ],
