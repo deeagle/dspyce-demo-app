@@ -29,7 +29,7 @@
         },
         {
           type: "build",
-          scope: "debs"
+          scope: "debs",
           release: "patch",
         }
       ],
