@@ -4,37 +4,29 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     {
-      preset: "angular",
-      releaseRules: [
+      "preset": "angular",
+      "releaseRules": [
         {
-          breaking: true,
-          release: "major",
+          "type": "docs",
+          "scope": "readme",
+          "release": "patch",
         },
         {
-          type: "feat",
-          release: "minor",
+          "type": "chore",
+          "release": "patch",
         },
         {
-          type: "fix",
-          release: "patch",
+          "type": "build",
+          "scope": "debs",
+          "release": "patch",
         },
         {
-          type: "docs",
-          scope: "README",
-          release: "patch",
-        },
-        {
-          type: "chore",
-          release: "patch",
-        },
-        {
-          type: "build",
-          scope: "debs",
-          release: "patch",
+          "type": "style",
+          "release": "patch",
         }
       ],
-      parserOpts: {
-        noteKeywords: ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"],
+      "parserOpts": {
+        "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES", "BREAKING"],
       },
     },
     "@semantic-release/release-notes-generator",
