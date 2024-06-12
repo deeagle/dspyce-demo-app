@@ -1,0 +1,16 @@
+---
+name: Dev-Workflow
+
+on:
+  push:
+    branches-ignore:
+      - main
+  workflow_dispatch:
+
+jobs:
+  call-ci-workflow:
+    uses: ./.github/workflows/ci.yml
+
+  call-release-tst-workflow:
+    uses: ./.github/workflows/release-tst.yml
+    secrets: inherit
