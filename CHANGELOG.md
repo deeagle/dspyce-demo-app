@@ -1,5 +1,7 @@
 # Semantic Versioning Changelog
 
+## [1.0.2](https://github.com/deeagle/dspyce-demo-app/compare/v1.0.1...v1.0.2) (2024-06-27)
+
 ## [1.0.1](https://github.com/deeagle/dspyce-demo-app/compare/v1.0.0...v1.0.1) (2024-06-12)
 
 # 1.0.0 (2024-06-04)
