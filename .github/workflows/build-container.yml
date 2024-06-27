@@ -1,0 +1,107 @@
+---
+name: docker-hub build and push
+on:
+  workflow_call:
+    inputs:
+      container-tag:
+        type: string
+        required: true
+        description: 'The tag to use for the container'
+
+env:
+  fail-fast: true
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  get-release:
+    name: Get latest release tag
+    runs-on: ubuntu-latest
+    outputs:
+      app_version: ${{ steps.get_release_tag.outputs.app_version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Get the last tag via git and store in var
+        id: get_release_tag
+        run: |
+          APP_VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))
+          echo "${APP_VERSION}"
+          echo "app_version=${APP_VERSION}" >> ${GITHUB_OUTPUT}
+
+  docker-hub:
+    needs: get-release
+    name: Build and push to DockerHub
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: show app_version from release job
+        env:
+          RELEASE_TAG: ${{ needs.get-release.outputs.app_version }}
+        run: |
+          echo "Delivered release tag is ${RELEASE_TAG} (local var)"
+          echo "Delivered release tag is ${{ needs.get-release.outputs.app_version }} (from needs)"
+          echo "Delivered release tag is ${{ env.RELEASE_TAG }} (from env)"
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for development
+        id: meta-dev
+        uses: docker/metadata-action@v5
+        if: ${{ inputs.container-tag != 'latest' }}
+        env:
+          RELEASE_TAG: ${{ needs.get-release.outputs.app_version }}
+        with:
+          images: ${{ secrets.DOCKER_USERNAME }}/${{ vars.DOCKER_PROJECT_NAME }}
+          tags: |
+            type=semver,pattern={{version}} 
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=${{ inputs.container-tag }}
+
+      - name: Extract metadata (tags, labels) for latest release
+        id: meta-latest
+        uses: docker/metadata-action@v5
+        if: ${{ inputs.container-tag == 'latest' }}
+        env:
+          RELEASE_TAG: ${{ needs.get-release.outputs.app_version }}
+        with:
+          images: ${{ secrets.DOCKER_USERNAME }}/${{ vars.DOCKER_PROJECT_NAME }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=${{ env.RELEASE_TAG }}
+            type=raw,value=${{ inputs.container-tag }}
+
+      - name: Build and push for development
+        uses: docker/build-push-action@v6
+        if: ${{ inputs.container-tag != 'latest' }}
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta-dev.outputs.tags }}
+          labels: ${{ steps.meta-dev.outputs.labels }}
+
+      - name: Build and push for latest
+        uses: docker/build-push-action@v6
+        if: ${{ inputs.container-tag == 'latest' }}
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta-latest.outputs.tags }}
+          labels: ${{ steps.meta-latest.outputs.labels }}

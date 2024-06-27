@@ -21,3 +21,12 @@ jobs:
       - call-release-tst-workflow
     uses: ./.github/workflows/release.yml
     secrets: inherit
+
+  call-container-build-workflow:
+    needs:
+      - call-ci-workflow
+      - call-release-workflow
+    uses: ./.github/workflows/build-container.yml
+    with:
+      container-tag: latest
+    secrets: inherit

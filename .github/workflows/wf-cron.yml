@@ -1,0 +1,21 @@
+---
+name: Cronjobs
+
+on:
+  schedule:
+    - cron: '28 4 * * SUN'
+  workflow_dispatch:
+    branches:
+      - main
+
+jobs:
+  # validated while checkin
+  # - lint
+  # - release-tst
+  # - release
+
+  call-container-build-workflow:
+    uses: ./.github/workflows/build-container.yml
+    with:
+      container-tag: latest
+    secrets: inherit
