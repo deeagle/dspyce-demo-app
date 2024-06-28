@@ -19,6 +19,19 @@ created during OpenRepositories 2024 in Gothenburg.
 - `docker buildx build -t "dspyce-demo:local" .`
 - `docker run dspyce-demo:local`
 
+## Dependency management
+
+With the update from dspyce `v0.0.2` to `v0.0.3` the build fails with a missing dependency error.
+
+"The Python community seems to solve this by merging multiple `requirements.txt` files.
+I'm not sure how Dependabot will handle this, so I'm resolving it with the script `run-sync-requirements.sh` manually.
+
+**Process:**
+
+- retrieve DSpyce dependencies from the main project (`dspyce-requirements.txt`)
+- merge with DSpyce demo app dependencies (`dspyce-demo-app-requirements.txt`)
+- store the merge in file `requirements.txt`
+
 ## Weblinks
 
 - [DSpace](https://dspace.lyrasis.org/)
