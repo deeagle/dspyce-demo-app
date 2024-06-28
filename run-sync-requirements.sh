@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DSPCYE_DEPENDENCIES="requirements.dspyce"
-DSPYCE_DEMO_DEPENDENCIES="requirements.dspyce-demo-app"
+DSPCYE_DEPENDENCIES="dspyce-requirements.txt"
+DSPYCE_DEMO_DEPENDENCIES="dspyce-demo-app-requirements.txt"
 REQUIREMENTS_RESULT_FILE="requirements.txt"
 
 echo "Running requirements-update ..."
