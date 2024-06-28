@@ -23,7 +23,7 @@ created during OpenRepositories 2024 in Gothenburg.
 
 With the update from dspyce `v0.0.2` to `v0.0.3` the build fails with a missing dependency error.
 
-"The Python community seems to solve this by merging multiple `requirements.txt` files.
+The Python community seems to solve this by merging multiple `requirements.txt` files.
 I'm not sure how Dependabot will handle this, so I'm resolving it with the script `run-sync-requirements.sh` manually.
 
 **Process:**
