@@ -1,3 +1,4 @@
+import argparse
 import dspyce
 import json
 
@@ -21,5 +22,15 @@ def access_demo_api_and_print_statistics() -> None:
     print_statistics(api_endpoint)
     print("Demo successfully finished")
 
+def print_app_description() -> None:
+    print("Demo implementation of a dspyce library")
+
 if __name__ == "__main__":
-    access_demo_api_and_print_statistics()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--desc', action='store_true', help='Request common description')
+    args = parser.parse_args()
+
+    if args.desc:
+        print_app_description()
+    else:
+        access_demo_api_and_print_statistics()
