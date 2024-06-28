@@ -15,6 +15,7 @@ def print_statistics(api_endpoint: dspyce.rest.RestAPI, human_readable=True) -> 
         stats = json.dumps(stats, indent=2)
     print(stats)
 
+
 def access_demo_api_and_print_statistics() -> None:
     print("Demo implementation of a dspyce library")
     url = "https://demo.dspace.org/server/api"
@@ -22,8 +23,10 @@ def access_demo_api_and_print_statistics() -> None:
     print_statistics(api_endpoint)
     print("Demo successfully finished")
 
+
 def print_app_description() -> None:
     print("Demo implementation of a dspyce library")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
