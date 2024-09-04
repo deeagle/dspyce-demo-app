@@ -16,7 +16,7 @@ contourpy==1.2.1
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
-dspyce==0.0.3
+dspyce==0.0.4
     # via -r dspyce-demo-app-requirements.txt
 fonttools==4.53.1
     # via matplotlib
@@ -29,9 +29,13 @@ lxml==5.3.0
     #   -r dspyce-requirements.txt
     #   dspyce
 matplotlib==3.9.2
-    # via -r dspyce-requirements.txt
+    # via
+    #   -r dspyce-requirements.txt
+    #   dspyce
 networkx==3.3
-    # via -r dspyce-requirements.txt
+    # via
+    #   -r dspyce-requirements.txt
+    #   dspyce
 numpy==2.1.1
     # via
     #   contourpy
