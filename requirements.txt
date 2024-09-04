@@ -32,7 +32,7 @@ matplotlib==3.9.2
     # via -r dspyce-requirements.txt
 networkx==3.3
     # via -r dspyce-requirements.txt
-numpy==2.0.1
+numpy==2.1.1
     # via
     #   contourpy
     #   matplotlib
