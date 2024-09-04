@@ -20,7 +20,7 @@ dspyce==0.0.3
     # via -r dspyce-demo-app-requirements.txt
 fonttools==4.53.1
     # via matplotlib
-idna==3.7
+idna==3.8
     # via requests
 kiwisolver==1.4.5
     # via matplotlib
