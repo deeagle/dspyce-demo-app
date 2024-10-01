@@ -5,7 +5,7 @@
 [![Cronjobs](https://github.com/deeagle/dspyce-demo-app/actions/workflows/wf-cron.yml/badge.svg)](https://github.com/deeagle/dspyce-demo-app/actions/workflows/wf-cron.yml)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Docker](https://badgen.net/badge/icon/docker?icon=docker&label)](https://hub.docker.com/r/docdee/dspyce-demo-app)
-[![dspyce:0.0.4](https://img.shields.io/badge/dspyce-0.0.4-blue)](https://img.shields.io/badge/dspyce-0.0.4-blue)
+[![dspyce:0.0.5](https://img.shields.io/badge/dspyce-0.0.5-blue)](https://img.shields.io/badge/dspyce-0.0.5-blue)
 
 A demo implementation of the DSpace API wrapper **DSpyce** as a containerized application,
 created during OpenRepositories 2024 in Gothenburg.
