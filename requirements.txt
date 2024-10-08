@@ -36,7 +36,7 @@ networkx==3.3
     # via
     #   -r dspyce-requirements.txt
     #   dspyce
-numpy==2.1.1
+numpy==2.1.2
     # via
     #   contourpy
     #   matplotlib
