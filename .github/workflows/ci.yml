@@ -36,7 +36,7 @@ jobs:
 
       - name: Install flake8
         run: |
-          apt install -yq python3-flake3
+          sudo apt-get install -yq python3-flake8
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Lint with flake8
