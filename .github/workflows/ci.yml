@@ -26,18 +26,26 @@ jobs:
             **/*.md
             !CHANGELOG.md
 
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Lint dockerfile
+      - name: Lint Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: Dockerfile
 
+  lint-python:
+    name: Lint python
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
       - name: Install flake8
-        run: |
-          sudo apt-get install -yq python3-flake8
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        run: pip install flake8
 
       - name: Lint with flake8
         run: |
