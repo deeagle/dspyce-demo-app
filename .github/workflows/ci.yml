@@ -19,7 +19,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Lint readme file
+      - name: Lint markdown files
         uses: DavidAnson/markdownlint-cli2-action@v17
         with:
           globs: |
