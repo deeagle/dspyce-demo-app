@@ -28,7 +28,7 @@ lxml==5.3.0
     # via
     #   -r dspyce-requirements.txt
     #   dspyce
-matplotlib==3.9.2
+matplotlib==3.9.3
     # via
     #   -r dspyce-requirements.txt
     #   dspyce
