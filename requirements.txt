@@ -10,7 +10,7 @@ beautifulsoup4==4.13.3
     #   dspyce
 certifi==2024.8.30
     # via requests
-charset-normalizer==3.4.0
+charset-normalizer==3.4.1
     # via requests
 contourpy==1.3.1
     # via matplotlib
