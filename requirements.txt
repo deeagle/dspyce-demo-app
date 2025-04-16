@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=requirements.txt dspyce-demo-app-requirements.txt dspyce-requirements.txt
 #
-beautifulsoup4==4.13.3
+beautifulsoup4==4.13.4
     # via
     #   -r dspyce-requirements.txt
     #   dspyce
