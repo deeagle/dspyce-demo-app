@@ -40,7 +40,7 @@ numpy==2.2.1
     # via
     #   contourpy
     #   matplotlib
-packaging==24.2
+packaging==25.0
     # via matplotlib
 pillow==11.2.1
     # via
