@@ -57,7 +57,7 @@ requests==2.32.3
     #   dspyce
 six==1.17.0
     # via python-dateutil
-soupsieve==2.6
+soupsieve==2.7
     # via beautifulsoup4
 urllib3==2.4.0
     # via requests
