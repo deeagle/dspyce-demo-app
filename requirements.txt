@@ -51,7 +51,7 @@ pyparsing==3.2.3
     # via matplotlib
 python-dateutil==2.9.0.post0
     # via matplotlib
-requests==2.32.3
+requests==2.32.4
     # via
     #   -r dspyce-requirements.txt
     #   dspyce
