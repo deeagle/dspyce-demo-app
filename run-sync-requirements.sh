@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DSPCYE_DEPENDENCIES="dspyce-requirements.txt"
 DSPYCE_DEMO_DEPENDENCIES="dspyce-demo-app-requirements.txt"
