@@ -1,4 +1,4 @@
-PHONY: ci dbuild drun update-dependencies
+PHONY: ci dbuild drun fix-wsl update-dependencies
 
 DOCKER_LOCAL_NAME=dspyce-demo:local
 
@@ -9,7 +9,11 @@ drun:
 	docker run --rm "${DOCKER_LOCAL_NAME}"
 
 ci:
+	@if grep -qi microsoft /proc/version; then $(MAKE) fix-wsl; fi
 	./run-ci.sh
+
+fix-wsl:
+	find . -iname "*.sh" -type f | xargs dos2unix
 
 update-dependencies:
 	./run-sync-requirements.sh
