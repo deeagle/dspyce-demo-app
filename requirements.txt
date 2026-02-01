@@ -32,7 +32,7 @@ matplotlib==3.10.7
     # via
     #   -r dspyce-requirements.txt
     #   dspyce
-networkx==3.6
+networkx==3.6.1
     # via
     #   -r dspyce-requirements.txt
     #   dspyce
