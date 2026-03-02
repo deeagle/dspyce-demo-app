@@ -47,7 +47,7 @@ pillow==12.1.1
     #   -r dspyce-requirements.txt
     #   dspyce
     #   matplotlib
-pyparsing==3.3.1
+pyparsing==3.3.2
     # via matplotlib
 python-dateutil==2.9.0.post0
     # via matplotlib
