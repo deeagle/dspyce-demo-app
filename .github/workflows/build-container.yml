@@ -61,7 +61,7 @@ jobs:
 
       - name: Extract metadata (tags, labels) for development
         id: meta-dev
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         if: ${{ inputs.container-tag != 'latest' }}
         env:
           RELEASE_TAG: ${{ needs.get-release.outputs.app_version }}
@@ -74,7 +74,7 @@ jobs:
 
       - name: Extract metadata (tags, labels) for latest release
         id: meta-latest
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         if: ${{ inputs.container-tag == 'latest' }}
         env:
           RELEASE_TAG: ${{ needs.get-release.outputs.app_version }}
