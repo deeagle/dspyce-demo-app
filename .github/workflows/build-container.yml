@@ -87,7 +87,7 @@ jobs:
             type=raw,value=${{ inputs.container-tag }}
 
       - name: Build and push for development
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         if: ${{ inputs.container-tag != 'latest' }}
         with:
           context: .
@@ -97,7 +97,7 @@ jobs:
           labels: ${{ steps.meta-dev.outputs.labels }}
 
       - name: Build and push for latest
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         if: ${{ inputs.container-tag == 'latest' }}
         with:
           context: .
