@@ -22,7 +22,7 @@ fonttools==4.61.1
     # via matplotlib
 idna==3.11
     # via requests
-kiwisolver==1.4.9
+kiwisolver==1.5.0
     # via matplotlib
 lxml==6.1.0
     # via
