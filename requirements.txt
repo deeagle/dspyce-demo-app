@@ -18,7 +18,7 @@ cycler==0.12.1
     # via matplotlib
 dspyce==0.2
     # via -r dspyce-demo-app-requirements.txt
-fonttools==4.61.1
+fonttools==4.63.0
     # via matplotlib
 idna==3.15
     # via requests
