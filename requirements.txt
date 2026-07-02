@@ -42,7 +42,7 @@ numpy==2.5.0
     #   matplotlib
 packaging==26.2
     # via matplotlib
-pillow==12.2.0
+pillow==12.3.0
     # via
     #   -r dspyce-requirements.txt
     #   dspyce
