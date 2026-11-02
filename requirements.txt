@@ -49,7 +49,7 @@ pillow==12.3.0
     #   matplotlib
 pyparsing==3.3.2
     # via matplotlib
-python-dateutil==2.9.0.post0
+python-dateutil==3.0.0
     # via matplotlib
 requests==2.34.2
     # via
